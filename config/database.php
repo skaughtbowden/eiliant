@@ -2,6 +2,7 @@
 
 // For Postgres on Heroku
 $url = parse_url(getenv("DATABASE_URL"));
+
 $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
@@ -21,7 +22,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------

@@ -19,9 +19,8 @@ return [
         'secret' => env('MAILGUN_SECRET'),
     ],
 
-    'openweathermap' => [
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+    'darksky' => [
+        'key' => env('WEATHER_KEY'),
     ],
 
     'ses' => [

@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /*
+         *  generate seed files from existing tables
+         */
+        Orangehill\Iseed\IseedServiceProvider::class
     ],
 
     /*

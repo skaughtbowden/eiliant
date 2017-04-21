@@ -10,4 +10,10 @@ class Location extends Model
     {
         return $this->belongsToMany('App\User');
     }
+
+    public function city_state() {
+        return $this->city . ', ' . $this->state . ' [' . $this->zip . ']';
+    }
+
+
 }

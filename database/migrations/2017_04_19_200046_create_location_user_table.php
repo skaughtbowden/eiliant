@@ -16,7 +16,7 @@ class CreateLocationUserTable extends Migration
         Schema::create('location_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('location_id');
-            $table->integer('city_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

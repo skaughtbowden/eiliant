@@ -17,4 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/search', 'SearchController@locations');
+Route::get('search', 'SearchController@locations');
+
+Route::delete('location/{userId}/{locationId}', 'LocationController@customDestroy');
+Route::resource('location', 'LocationController');

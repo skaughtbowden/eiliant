@@ -17,10 +17,10 @@
             <td>{{ $location->city }}</td>
             <td>{{ $location->state }}</td>
             <td>{{ $location->zip }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ $location->currentTemp }}</td>
+            <td>{{ $location->maxTemp }}</td>
+            <td>{{ $location->minTemp }}</td>
+            <td>{{ $location->precip }}</td>
             <td class="text-right">
                 <div title="Delete">
                     <button class="btn btn-danger btn-xs deleteLocation" data-id="{{ $location->id }}">

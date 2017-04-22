@@ -73,6 +73,14 @@ class LocationController extends Controller
             ->orderBy('zip')
             ->get();
 
+        foreach ($locations as $location) {
+            $weather = json_decode($location->weather);
+            $location->currentTemp = $weather->currently->temperature;
+            $location->maxTemp = $weather->daily->data[0]->temperatureMax;
+            $location->minTemp = $weather->daily->data[0]->temperatureMin;
+            $location->precip = strval($weather->daily->data[0]->precipProbability * 100) . '%';
+        }
+
         // Redraw the table and hand it back
         return view('partials.locations', compact('locations'));
     }

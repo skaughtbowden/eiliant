@@ -30,17 +30,24 @@ class HomeController extends Controller
         // get all locations for this user and check each one for stale or missing weather data
         $locations = $user
             ->locations()
+            ->select('city','state','zip','weather')
             ->orderBy('city')
             ->orderBy('state')
             ->orderBy('zip')
             ->get();
 
         foreach ($locations as $location) {
-            $updated = $location->updateWeather();
+            $weather = json_decode($location->weather);
+            $location->currentTemp = $weather->currently->temperature;
+            $location->maxTemp = $weather->daily->data[0]->temperatureMax;
+            $location->minTemp = $weather->daily->data[0]->temperatureMin;
+            $location->precip = strval($weather->daily->data[0]->precipProbability * 100) . '%';
 
-            if ($updated) {
-                $location = $updated;
-            }
+//            $updated = $location->updateWeather();
+//
+//            if ($updated) {
+//                $location = $updated;
+//            }
         }
 
         return View::make('home', compact('user', 'locations'));

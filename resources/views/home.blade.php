@@ -50,26 +50,47 @@
             $.post(
                 '{{ url('/api/location') }}',
                 { location_id: ui.item.id, user_id: {{$user->id}} },
-                function(data) {
+                function(data) { // SUCCESS
+                    // write in template rendering provided by controller
                     $('#locations_list').replaceWith(data);
+
+                    // re-bind events to replacement HTML
+                    // ??????
+
+                    // delete text from input
                     $('#location').val('');
-                    var new_count = parseInt($("#location_count").html(), 10) + 1;
-                    $("#location_count").html(new_count);
+
+                    // increment counter
+                    $("#location_count").html(parseInt($("#location_count").html(), 10) + 1);
                 }
             )
-            .fail(function(xhr, textStatus, errorThrown) {
+            .fail(function(xhr) {
                 $("#error").text(JSON.parse(xhr.responseText));
                 $("#error_container").show();
             })
         }
     });
 
-    $('.deleteLocation').on('click', function(e) {
+    $(document).on('click', '.deleteLocation', function(e) {
+        var $tr = $(this).closest('tr');
+
         if(confirm('Are you sure to delete this location?')) {
             $.ajax({
                 url: '{{ url('/api/location') }}' + '/' + {{$user->id}} + '/' + $(this).attr('data-id'),
                 type: 'post',
-                data: { _method: 'delete' }
+                data: { _method: 'delete' },
+                success: function(response) {
+                    // decrement counter
+                    $("#location_count").html(parseInt($("#location_count").html(), 10) - 1);
+
+                    // deletion successful, remove the parent row
+                    $tr.find('td').fadeOut(1000,function(){
+                        $tr.remove();
+                    });
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert(thrownError);
+                }
             });
             return false;
         }

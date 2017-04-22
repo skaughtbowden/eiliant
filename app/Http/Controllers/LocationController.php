@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Location;
 
@@ -60,8 +59,13 @@ class LocationController extends Controller
             return response()->json($error, $code);
         }
 
+        // Attach location to user's account
         $user->locations()->save($location);
 
+        // Check if location needs weather update
+        $location->updateWeather();
+
+        // Get updated list of locations for user
         $locations = $user
             ->locations()
             ->orderBy('city')
@@ -69,6 +73,7 @@ class LocationController extends Controller
             ->orderBy('zip')
             ->get();
 
+        // Redraw the table and hand it back
         return view('partials.locations', compact('locations'));
     }
 
@@ -129,4 +134,5 @@ class LocationController extends Controller
         }
         return response(['msg' => 'Failed deleting the location', 'status' => 'failed']);
     }
+
 }

@@ -4,10 +4,11 @@
             <th>City</th>
             <th>State</th>
             <th>Zip</th>
+            <th>Current</th>
             <th>High</th>
             <th>Low</th>
             <th>Precip</th>
-            <th>Remove</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,7 +20,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>
+            <td></td>
+            <td class="text-right">
                 <div title="Delete">
                     <button class="btn btn-danger btn-xs deleteLocation" data-id="{{ $location->id }}">
                         <span class="glyphicon glyphicon-trash"></span>

@@ -19,7 +19,7 @@ return [
         'secret' => env('MAILGUN_SECRET'),
     ],
 
-    'darksky' => [
+    'dark_sky' => [
         'key' => env('WEATHER_KEY'),
     ],
 

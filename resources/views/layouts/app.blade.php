@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <!-- Ionicons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -82,8 +85,16 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted text-center">
+                    <a href="https://darksky.net/poweredby/" target="_blank">
+                        Powered by Dark Sky
+                    </a>
+                </p>
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->

@@ -36,9 +36,3 @@
     @endforelse
     </tbody>
 </table>
-
-<script>
-    $(document).ready(function() {
-        $('#locations_list').DataTable();
-    });
-</script>

@@ -42,7 +42,7 @@
 
 <script type="text/javascript">
     $('#location').autocomplete({
-        source:'http://localhost:8000/api/search',
+        source: "api/search",
         minlength: 3,
         delay: 500,
         autoFocus: true,

@@ -27,8 +27,8 @@ just for fun.
 
 Because this demo uses Dark Sky's free developer plan, it is limited to 1000 API calls per month.
 Eiliant pages do not automatically check for updates on a Javascript timer, but each time the page is
-reloaded, a check **is** made to see when every location in a user's list was last cached; if
-it is more than 30 minutes stales, new data is retrieved.
+reloaded a check **is** made to see when every location in a user's list was last cached; if
+it is more than 30 minutes stale, new data is retrieved.
 
 Additionally, because this project is deployed to a free Heroku plan at [eiliant.herokuapp.com](http://eiliant.herokuapp.com),
 it is limited to 10,000 rows in the database. The locations table alone contained over 42,000 U.S. 

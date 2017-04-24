@@ -54,11 +54,11 @@
                     // write in template rendering provided by controller
                     $('#locations_list').replaceWith(data);
 
-                    // re-bind events to replacement HTML
-                    // ??????
-
                     // delete text from input
                     $('#location').val('');
+
+                    // hide any lingering error messages
+                    $("#error_container").hide();
 
                     // increment counter
                     $("#location_count").html(parseInt($("#location_count").html(), 10) + 1);

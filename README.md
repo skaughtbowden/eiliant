@@ -34,7 +34,23 @@ Additionally, because this project is deployed to a free Heroku plan at [eiliant
 it is limited to 10,000 rows in the database. The locations table alone contained over 42,000 U.S. 
 towns and cities, and may be truncated down to a single state's data sometime shortly after 4/26/2017.
 
-![](/images/eiliant.png)
+---
+
+Usage:
+1. Register with your name and email address
+    * If you've already registered, then just log in!
+2. Enter the name or zip code of a town or city
+    * To specify a state, use "city, state" format
+3. Select the matching location from the list presented
+4. Enjoy knowing what the weather is like in that place!
+
+**NOTE:** There is a limit of 20 locations stored per-user.
+You can click the Delete icon to the right of each saved
+location to make room for new, more interesting locations.
+
+![](http://eiliant.herokuapp.com/images/eiliant.png)
+
+*developed by [Skaught Bowden](http://www.linkedin.com/in/skaughtbowden/), GitHub [http://github.com/skaughtbowden](http://github.com/skaughtbowden)*
 
 ---
 
